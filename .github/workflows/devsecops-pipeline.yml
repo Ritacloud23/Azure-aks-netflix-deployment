@@ -17,14 +17,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/maven@master
-        continue-on-error: false
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Set up Snyk
+        uses: snyk/actions/setup@master
+
+      - name: Run Snyk Test
+        working-directory: ./netflix_backend
+        run: snyk test --severity-threshold=critical --all-projects
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --severity-threshold=critical --file=netflix_backend/pom.xml
-
+          
   # ─────────────────────────────────────
   # JOB 2: Build & Trivy Scan - Backend
   # ─────────────────────────────────────
