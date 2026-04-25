@@ -1,0 +1,45 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netflix-frontend
+  namespace: netflix
+  labels:
+    app: netflix-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: netflix-frontend
+  template:
+    metadata:
+      labels:
+        app: netflix-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: netflixacrrita.azurecr.io/netflix-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "300m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: netflix-frontend-svc
+  namespace: netflix
+spec:
+  type: LoadBalancer
+  selector:
+    app: netflix-frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000

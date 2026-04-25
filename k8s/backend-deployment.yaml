@@ -1,0 +1,51 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netflix-backend
+  namespace: netflix
+  labels:
+    app: netflix-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: netflix-backend
+  template:
+    metadata:
+      labels:
+        app: netflix-backend
+    spec:
+      containers:
+        - name: backend
+          image: netflixacrrita.azurecr.io/netflix-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATA_MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-secret
+                  key: MONGO_URI
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: netflix-backend-svc
+  namespace: netflix
+spec:
+  type: LoadBalancer
+  selector:
+    app: netflix-backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
