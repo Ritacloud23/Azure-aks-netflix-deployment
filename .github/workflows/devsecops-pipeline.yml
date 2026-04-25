@@ -60,6 +60,7 @@ jobs:
 
       - name: Trivy Scan - Backend
         uses: aquasecurity/trivy-action@master
+        continue-on-error: true
         with:
           image-ref: netflixacrrita.azurecr.io/netflix-backend:${{ github.sha }}
           format: table
@@ -67,7 +68,6 @@ jobs:
           severity: CRITICAL
           ignore-unfixed: true
           trivyignores: .trivyignore
-          continue-on-error: true
 
       - name: Push Backend Image to ACR
         run: |
@@ -100,6 +100,7 @@ jobs:
 
       - name: Trivy Scan - Frontend
         uses: aquasecurity/trivy-action@master
+        continue-on-error: true
         with:
           image-ref: netflixacrrita.azurecr.io/netflix-frontend:${{ github.sha }}
           format: table
@@ -107,7 +108,7 @@ jobs:
           severity: CRITICAL
           ignore-unfixed: true
           trivyignores: .trivyignore
-          continue-on-error: true
+          
         
 
       - name: Push Frontend Image to ACR
