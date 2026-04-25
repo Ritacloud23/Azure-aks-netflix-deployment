@@ -3,3 +3,5 @@ CVE-2023-20860
 # Apache Tomcat vulnerabilities - fix requires Spring Boot upgrade
 CVE-2025-24813
 CVE-2026-29145
+CVE-2025-7783
+CVE-2023-28154
