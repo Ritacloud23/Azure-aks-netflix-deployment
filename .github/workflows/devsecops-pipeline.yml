@@ -68,6 +68,7 @@ jobs:
           severity: CRITICAL
           ignore-unfixed: true
           trivyignores: .trivyignore
+          
 
       - name: Push Backend Image to ACR
         run: |
