@@ -1,0 +1,46 @@
+name: Build and push docker image
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+        # role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+        # role-session-name: GitHubActionsSession
+        # aws-region: ${{ secrets.AWS_REGION }}
+        
+    - name: Print AWS credentials (for debugging)
+      run: aws sts get-caller-identity
+# Login to ECR
+#=============
+    - name: Login to ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+
+
+    - name: Docker build 
+      run: |
+        docker build -t netflix_frontend:latest .
+
+    - name: Docker push
+      run: |
+        docker tag netflix_frontend:latest 348230509416.dkr.ecr.us-east-2.amazonaws.com/netflix_frontend:${GITHUB_RUN_NUMBER}
+        docker push 348230509416.dkr.ecr.us-east-2.amazonaws.com/netflix_frontend:${GITHUB_RUN_NUMBER}

@@ -1,0 +1,143 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+*{
+  box-sizing: border-box;
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+body{
+  padding:0;
+  margin:0;
+}
+.App{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black;
+  color:white;
+  margin-top:10px;
+} */
+
+/* Importing a Google Font for a clean sans-serif look like Netflix */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #141414; /* Dark background color similar to Netflix */
+}
+
+/* General app layout */
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #141414;
+    color: white;
+    margin-top: 10px;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+}
+
+header img {
+    width: 100px; /* Logo size */
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 16px;
+}
+
+/* Main banner styles */
+.banner {
+    background-size: cover;
+    background-position: center center;
+    height: 400px;
+    padding-top: 140px; /* Adjust based on banner image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.banner .button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e50914; /* Red color for Netflix-style button */
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.banner .button:hover {
+    background-color: #f40612;
+}
+
+/* Section for displaying movie rows */
+.row {
+    margin-left: 20px;
+    margin-top: 30px;
+    color: white;
+}
+
+.row h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* Movie posters */
+.row .posters {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px 0;
+}
+
+.row .posters::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+.row .posters img {
+    width: 200px;
+    object-fit: contain;
+    margin-right: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.row .posters img:hover {
+    transform: scale(1.08); /* Zoom effect when hovering over movies */
+}
+
+/* Footer section */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #141414;
+    color: white;
+    font-size: 14px;
+}
