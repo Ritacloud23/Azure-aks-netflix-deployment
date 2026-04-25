@@ -137,5 +137,3 @@ jobs:
 
       - name: Verify Deployment
         run: kubectl get pods -n netflix
-        
-
