@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: netflix-ingress
+  namespace: netflix
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect:  "false"
+spec:
+  tls:
+  - hosts:
+    - netflix.devopsbliss.online
+    - api.devopsbliss.online
+    secretName: netflix-tls
+  rules:
+  - host: netflix.devopsbliss.online
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: netflix-frontend-svc
+            port:
+              number: 80
+  - host: api.devopsbliss.online
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: netflix-backend-svc
+            port:
+              number: 8080
