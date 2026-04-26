@@ -497,7 +497,7 @@ Status: SUCCESS
 ![Azure Resource Group](images/Azure%20Resource%20Group.jpeg)
 
 ### AKS Cluster with 3 Ready Nodes
-![AKS Cluster](images/AKS%20cluster%20with%203%20Ready%20nodes.jpeg)
+![AKS Cluster](images/AKS%20Cluster.jpeg)
 
 ### ACR Repository
 ![ACR Repo](images/ACR%20repo%20(Backend%20+%20Frontend).jpeg)
@@ -506,7 +506,7 @@ Status: SUCCESS
 ![GitHub Action](images/GitHub%20Action.jpeg)
 
 ### ArgoCD Healthy + Synced
-![ArgoCD](images/ArgoCD-Healthy%2BSynced.jpeg)
+![ArgoCD](images/ArgoCD.jpeg)
 
 ### Grafana Dashboard
 ![Grafana Dashboard](images/Grafana-Dashboard.jpeg)
