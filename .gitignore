@@ -9,3 +9,5 @@ crash.log
 # OS
 .DS_Store
 Thumbs.db
+k8s/argocd.exe
+*.exe
