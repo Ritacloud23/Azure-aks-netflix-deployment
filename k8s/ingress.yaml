@@ -34,3 +34,4 @@ spec:
             name: netflix-backend-svc
             port:
               number: 8080
+
