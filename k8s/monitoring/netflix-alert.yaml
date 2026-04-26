@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: netflix-alerts
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  groups:
+  - name: netflix.rules
+    rules:
+    - alert: HighCPUUsage
+      expr: sum(rate(container_cpu_usage_seconds_total{namespace="netflix"}[2m])) > 0.8
+      for: 2m
+      labels:
+        severity: warning
+      annotations:
+        summary: High CPU usage in netflix namespace
+        description: CPU usage exceeded 80% for 2 minutes.
