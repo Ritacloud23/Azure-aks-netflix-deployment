@@ -491,16 +491,28 @@ Status: SUCCESS
 
 ---
 
-##  Project Screenshots
+## Project Screenshots
 
-> Screenshots available in the `/docs` folder:
-> - Azure Portal — Resource Group overview
-> - AKS cluster with 3 Ready nodes
-> - ACR repositories (backend + frontend images)
-> - GitHub Actions — green pipeline
-> - ArgoCD — Healthy + Synced
-> - Grafana — cluster dashboards
-> - Live app at `https://netflix.devopsbliss.online`
+### Azure Resource Group
+![Azure Resource Group](images/Azure%20Resource%20Group.jpeg)
+
+### AKS Cluster with 3 Ready Nodes
+![AKS Cluster](images/AKS%20cluster%20with%203%20Ready%20nodes.jpeg)
+
+### ACR Repository
+![ACR Repo](images/ACR%20repo%20(Backend%20+%20Frontend).jpeg)
+
+### GitHub Actions Pipeline
+![GitHub Action](images/GitHub%20Action.jpeg)
+
+### ArgoCD Healthy + Synced
+![ArgoCD](images/ArgoCD-Healthy%2BSynced.jpeg)
+
+### Grafana Dashboard
+![Grafana Dashboard](images/Grafana-Dashboard.jpeg)
+
+### Live Application
+![Live App](images/Live%20app%20at%20https-netflix.devopsbliss.online.jpeg)
 
 ---
 
