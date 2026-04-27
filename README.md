@@ -1,4 +1,4 @@
-# 🎬 Netflix Clone - Full-Stack Azure AKS Deployment with DevSecOps
+# Netflix DevSecOps Platform on Azure AKS
 
 [![Azure AKS](https://img.shields.io/badge/Azure-AKS-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)](https://azure.microsoft.com)
 [![Live Demo](https://img.shields.io/badge/🌐-Live_Demo-E50914?style=flat-square)](https://netflix.devopsbliss.online)
